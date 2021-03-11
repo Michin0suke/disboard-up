@@ -13,7 +13,7 @@ url = 'https://disboard.org/ja/dashboard/servers'
 
 def main():
     options = Options()
-    if config.binary_location:
+    if hasattr(config, 'binary_location'):
         options.binary_location = config.binary_location
     options.add_argument('--headless')
     options.add_argument('window-size=1600,900')
