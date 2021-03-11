@@ -13,10 +13,11 @@ url = 'https://disboard.org/ja/dashboard/servers'
 
 def main():
     options = Options()
-    # options.binary_location = '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
+    if config.binary_location:
+        options.binary_location = config.binary_location
     options.add_argument('--headless')
     options.add_argument('window-size=1600,900')
-    driver = webdriver.Chrome(options=options, executable_path='/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(options=options, executable_path=config.chrome_driver_path)
 
     try:
         driver.get(url)
